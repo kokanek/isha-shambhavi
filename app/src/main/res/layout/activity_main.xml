@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context="com.simplyaddictivestudios.isha.MainActivity">
+
+  <TextView
+    android:layout_width="392dp"
+    android:layout_height="75dp"
+    android:text="&amp; Preparatory practices"
+    android:textAlignment="center"
+    android:textSize="30sp"
+    android:id="@+id/textView"
+    android:layout_below="@+id/textView2"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:layout_marginTop="18dp" />
+
+  <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Shambhavi Maha Mudra"
+    android:textAlignment="center"
+    android:textSize="36sp"
+    android:layout_marginTop="42dp"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:id="@+id/textView2" />
+
+  <Button
+    android:id="@+id/button"
+    android:layout_width="100dip"
+    android:layout_height="100dip"
+    android:background="@drawable/play"
+    android:elevation="23dp"
+    android:layout_below="@+id/textView"
+    android:layout_marginTop="100dip"
+    android:onClick="onBeginClicked"
+    android:layout_centerHorizontal="true" />
+
+  <ProgressBar
+    android:id="@+id/progressBar2"
+    style="?android:attr/progressBarStyle"
+    android:layout_width="100dip"
+    android:layout_height="100dip"
+    android:elevation="23dp"
+    android:layout_below="@+id/textView"
+    android:layout_marginTop="100dip"
+    android:onClick="onBeginClicked"
+    android:layout_centerHorizontal="true" />
+
+  <TextView
+    android:id="@+id/textView3"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentEnd="true"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentStart="true"
+    android:text=""
+    android:textAlignment="center"
+    android:textSize="18sp" />
+
+  <ImageView
+    android:id="@+id/imageView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:srcCompat="@drawable/sadhguru"
+    android:layout_below="@+id/textView"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true" />
+
+  <CheckBox
+    android:id="@+id/checkBox"
+    style="@style/Widget.AppCompat.CompoundButton.CheckBox"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:layout_below="@+id/textView"
+    android:text="With Preparatory Practices"
+    android:onClick="onChecked"
+    android:textSize="18sp" />
+
+  <ProgressBar
+    android:id="@+id/progressBar"
+    style="?android:attr/progressBarStyleHorizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_above="@+id/textView3"
+    android:layout_alignParentEnd="true"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentStart="true"
+    android:progress="0" />
+
+</RelativeLayout>
