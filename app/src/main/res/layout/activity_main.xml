@@ -89,4 +89,14 @@
     android:layout_alignParentStart="true"
     android:progress="0" />
 
+  <ProgressBar
+      android:id="@+id/progressBarIndeterminate"
+      style="?android:attr/progressBarStyleHorizontal"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/checkBox"
+      android:layout_centerHorizontal="true"
+      android:indeterminate="true"
+      android:visibility="gone"/>
+
 </RelativeLayout>

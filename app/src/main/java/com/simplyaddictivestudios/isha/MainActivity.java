@@ -76,6 +76,9 @@ public class MainActivity extends AppCompatActivity {
     final CheckBox checkBox = (CheckBox) findViewById(R.id.checkBox);
     checkBox.setVisibility(GONE);
 
+    ProgressBar anim = (ProgressBar) findViewById(R.id.progressBarIndeterminate);
+    anim.setVisibility(View.VISIBLE);
+
     mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
       public void onCompletion(MediaPlayer mp) {
         ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
@@ -246,6 +249,9 @@ public class MainActivity extends AppCompatActivity {
             v.setVisibility(View.VISIBLE);
             checkBox.setVisibility(View.VISIBLE);
             progressBar.setProgress(0);
+
+            ProgressBar anim = (ProgressBar) findViewById(R.id.progressBarIndeterminate);
+            anim.setVisibility(View.GONE);
             break;
         }
       }
