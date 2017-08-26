@@ -2,6 +2,7 @@ package com.simplyaddictivestudios.isha;
 
 import android.media.MediaPlayer;
 import android.os.Handler;
+import android.os.PowerManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -27,19 +28,18 @@ public class MainActivity extends AppCompatActivity {
 
     super.onCreate(savedInstanceState);
 
-
-    displayStrings[START_INTRUCTIONS] = "Starting instructions";
-    displayStrings[PATANGASANA] = "Patangasana for 2 minutes";
-    displayStrings[SHISHU_RIGHT] = "Shishupalasana for right leg";
-    displayStrings[SHISHU_LEFT] = "Shishupalasana for left leg";
-    displayStrings[NADI_POSTURE] = "Nadi shodhana kriya posture";
-    displayStrings[NADI_FULL] = "Nadi shodhana kriya 3 times";
-    displayStrings[SUKHA_KRIYA] = "Sukha kriya for 5 minutes";
-    displayStrings[OM_CHANTING_START] = "prepare for om chanting";
-    displayStrings[AUM_CHANTING] = "Om chanting";
-    displayStrings[FLUTTER_BREATHING] = "flutter breathing";
-    displayStrings[BANDHAS] = "apply bandhas";
-    displayStrings[ENDING_SHLOKA] = "Ending shloka";
+    displayStrings[START_INTRUCTIONS] = "Starting instructions...";
+    displayStrings[PATANGASANA] = "Patangasana for 2 minutes...";
+    displayStrings[SHISHU_RIGHT] = "Shishupalasana for right leg...";
+    displayStrings[SHISHU_LEFT] = "Shishupalasana for left leg...";
+    displayStrings[NADI_POSTURE] = "Nadi shodhana kriya posture...";
+    displayStrings[NADI_FULL] = "Nadi shodhana kriya 3 times...";
+    displayStrings[SUKHA_KRIYA] = "Sukha kriya for 5 minutes...";
+    displayStrings[OM_CHANTING_START] = "prepare for om chanting...";
+    displayStrings[AUM_CHANTING] = "Om chanting...";
+    displayStrings[FLUTTER_BREATHING] = "flutter breathing...";
+    displayStrings[BANDHAS] = "apply bandhas...";
+    displayStrings[ENDING_SHLOKA] = "Ending shloka...";
     displayStrings[END] = "End";
 
     setContentView(R.layout.activity_main);
@@ -47,12 +47,13 @@ public class MainActivity extends AppCompatActivity {
     CheckBox checkBox = (CheckBox) findViewById(R.id.checkBox);
     checkBox.setChecked(true);
 
-    ProgressBar progressBar2 = (ProgressBar) findViewById(R.id.progressBar2);
-    progressBar2.setVisibility(GONE);
-
     state = START_INTRUCTIONS;
 
     getWindow().clearFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+      PowerManager pm = (PowerManager) getSystemService(getApplicationContext().POWER_SERVICE);
+      PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK, "My Tag");
+      wl.acquire();
   }
 
   public void onChecked(View v) {
@@ -245,16 +246,20 @@ public class MainActivity extends AppCompatActivity {
             v.setVisibility(View.VISIBLE);
             checkBox.setVisibility(View.VISIBLE);
             progressBar.setProgress(0);
-            ProgressBar progressBar2 = (ProgressBar) findViewById(R.id.progressBar2);
-            progressBar2.setVisibility(View.GONE);
             break;
         }
       }
     });
 
     mediaPlayer.start();
-    ProgressBar progressBar2 = (ProgressBar) findViewById(R.id.progressBar2);
-    progressBar2.setVisibility(View.VISIBLE);
-    progressBar2.animate();
+  }
+
+  @Override
+    protected void onPause() {
+      super.onPause();
+
+      PowerManager pm = (PowerManager) getSystemService(getApplicationContext().POWER_SERVICE);
+      PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK, "My Tag");
+      wl.release();
   }
 }
